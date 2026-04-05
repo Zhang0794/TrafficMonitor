@@ -1,136 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TrafficMonitor.MainPage">
+             x:Class="TrafficMonitor.MainPage"
+             BackgroundColor="#F3F6FB">
 
-    <ScrollView>
-        <VerticalStackLayout
-        Padding="25"
-        Spacing="25"
-        BackgroundColor="#F4F6F9">
+    <Grid RowDefinitions="*,Auto">
 
-            <!-- Title -->
-            <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                <Label
-                Text="🚦 Traffic Monitor"
-                FontSize="34"
-                FontAttributes="Bold"
-                TextColor="#1F2933"
-                HorizontalOptions="Center"/>
+        <!-- 页面内容 -->
+        <ContentView x:Name="MainContent" Grid.Row="0"/>
 
-                <Label
-                Text="Singapore Checkpoint Traffic"
-                FontSize="16"
-                TextColor="#6B7280"
-                HorizontalOptions="Center"/>
-            </VerticalStackLayout>
+        <!-- 底部导航栏 -->
+        <Grid Grid.Row="1"
+              BackgroundColor="White"
+              Padding="10"
+              ColumnDefinitions="*,*,*"
+              HeightRequest="70">
 
-            <!-- Camera Image -->
-            <Frame
-            CornerRadius="16"
-            HasShadow="True"
-            Padding="0"
-            BorderColor="#E5E7EB">
+            <Button x:Name="HomeBtn"
+                    Text="🏠\n首页"
+                    Clicked="Home_Clicked"
+                    BackgroundColor="Transparent"/>
 
-                <Image
-                Source="traffic.jpg"
-                HeightRequest="220"
-                Aspect="AspectFill"/>
-            </Frame>
+            <Button x:Name="AnalyticsBtn"
+                    Grid.Column="1"
+                    Text="📊\n分析"
+                    Clicked="Analytics_Clicked"
+                    BackgroundColor="Transparent"/>
 
+            <Button x:Name="UserBtn"
+                    Grid.Column="2"
+                    Text="👤\n我的"
+                    Clicked="User_Clicked"
+                    BackgroundColor="Transparent"/>
 
-            <!-- Traffic Status Card -->
-            <Frame
-            CornerRadius="16"
-            Padding="20"
-            HasShadow="True"
-            BackgroundColor="White">
-
-                <VerticalStackLayout Spacing="10">
-
-                    <Label
-                    Text="Traffic Status"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    TextColor="#111827"/>
-
-                    <HorizontalStackLayout Spacing="20">
-
-                        <VerticalStackLayout>
-                            <Label
-                            Text="Cars Detected"
-                            FontSize="14"
-                            TextColor="#6B7280"/>
-
-                            <Label
-                            x:Name="CarCountLabel"
-                            Text="24"
-                            FontSize="24"
-                            FontAttributes="Bold"
-                            TextColor="#111827"/>
-                        </VerticalStackLayout>
-
-                        <VerticalStackLayout>
-                            <Label
-                            Text="Traffic Level"
-                            FontSize="14"
-                            TextColor="#6B7280"/>
-
-                            <Label
-                            x:Name="TrafficLevelLabel"
-                            Text="Moderate"
-                            FontSize="24"
-                            FontAttributes="Bold"
-                            TextColor="Orange"/>
-                        </VerticalStackLayout>
-
-                    </HorizontalStackLayout>
-
-                </VerticalStackLayout>
-            </Frame>
-
-
-            <!-- Checkpoint Buttons -->
-            <VerticalStackLayout Spacing="15">
-
-                <Label
-                Text="Select Checkpoint"
-                FontSize="18"
-                FontAttributes="Bold"
-                TextColor="#111827"/>
-
-                <Button
-                Text="📍 Woodlands Checkpoint"
-                BackgroundColor="#2563EB"
-                TextColor="White"
-                HeightRequest="55"
-                CornerRadius="12"
-                FontSize="16"
-                Clicked="Woodlands_Clicked"/>
-
-                <Button
-                Text="📍 Tuas Checkpoint"
-                BackgroundColor="#2563EB"
-                TextColor="White"
-                HeightRequest="55"
-                CornerRadius="12"
-                FontSize="16"
-                Clicked="Tuas_Clicked"/>
-
-            </VerticalStackLayout>
-
-
-            <!-- Refresh Button -->
-            <Button
-            Text="🔄 Refresh Traffic Data"
-            BackgroundColor="#22C55E"
-            TextColor="White"
-            HeightRequest="55"
-            CornerRadius="12"
-            FontSize="16"
-            Clicked="Refresh_Clicked"/>
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+        </Grid>
+    </Grid>
 </ContentPage>
