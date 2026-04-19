@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrafficMonitor.UserView"
+             BackgroundColor="{AppThemeBinding Light=#F3F6FB, Dark=#111827}">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <!-- Header -->
+        <Frame CornerRadius="20" BackgroundColor="#2563EB" Padding="20">
+            <VerticalStackLayout>
+                <Label x:Name="UsernameLabel"
+                       Text="User"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+
+                <Label x:Name="InfoLabel"
+                       Text="Welcome"
+                       TextColor="#DBEAFE"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Favorite -->
+        <Frame CornerRadius="20" BackgroundColor="White" Padding="20">
+
+            <VerticalStackLayout Spacing="10">
+
+                <Label Text="⭐ Favorite Checkpoint"
+                       FontAttributes="Bold"
+                       FontSize="18"/>
+
+                <Label x:Name="FavoriteLabel"
+                       Text="None"
+                       FontSize="20"
+                       TextColor="Black"/>
+
+                <Label x:Name="FavoriteStatusLabel"
+                       Text="No favorite selected"
+                       TextColor="Gray"/>
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+        <!-- Buttons -->
+        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+
+            <Button Text="🔄 Refresh"
+                    Clicked="Refresh_Clicked"
+                    BackgroundColor="#22C55E"
+                    TextColor="White"/>
+
+            <Button Grid.Column="1"
+                    Text="🗑 Remove"
+                    Clicked="Remove_Clicked"
+                    BackgroundColor="#EF4444"
+                    TextColor="White"/>
+
+            <Button Grid.Column="2"
+                    Text="🚪 Logout"
+                    Clicked="Logout_Clicked"
+                    BackgroundColor="#6B7280"
+                    TextColor="White"/>
+
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentView>

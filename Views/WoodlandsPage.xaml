@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrafficMonitor.WoodlandsPage"
+             BackgroundColor="{AppThemeBinding Light=#F3F6FB, Dark=#111827}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <Frame CornerRadius="24" Padding="20" BackgroundColor="#2563EB">
+                <VerticalStackLayout>
+                    <Label Text="📍 Woodlands Checkpoint"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Smart Causeway Monitoring"
+                           TextColor="#DBEAFE"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Camera -->
+            <Frame CornerRadius="20" Padding="0">
+                <Grid>
+                    <Image Source="traffic.jpg" HeightRequest="220" Aspect="AspectFill"/>
+                    <Label Text="🔴 LIVE"
+                           TextColor="White"
+                           BackgroundColor="#80000000"
+                           Padding="6"
+                           Margin="10"/>
+                </Grid>
+            </Frame>
+
+            <!-- Status -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+
+                <Frame>
+                    <VerticalStackLayout>
+                        <Label Text="Status"/>
+                        <Label x:Name="TrafficStatusLabel" Text="Moderate"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Column="1">
+                    <VerticalStackLayout>
+                        <Label Text="Wait Time"/>
+                        <Label x:Name="WaitTimeLabel" Text="18 mins"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </Grid>
+
+            <!-- Advice -->
+            <Frame BackgroundColor="#FEF3C7">
+                <Label x:Name="SmartAdviceLabel"
+                       Text="⚠ Consider alternative route"
+                       FontAttributes="Bold"/>
+            </Frame>
+
+            <!-- Flow -->
+            <Frame>
+                <VerticalStackLayout>
+                    <Label Text="Traffic Flow"/>
+                    <ProgressBar x:Name="TrafficFlowBar" Progress="0.6"/>
+                    <Label x:Name="LastUpdatedLabel"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ACTIONS -->
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="10">
+
+                <Button Text="⭐ Fav"
+                        Clicked="Favorite_Clicked"
+                        BackgroundColor="#6366F1"
+                        TextColor="White"/>
+
+                <Button Grid.Column="1"
+                        Text="📤 Share"
+                        Clicked="Share_Clicked"
+                        BackgroundColor="#0EA5E9"
+                        TextColor="White"/>
+
+                <Button Grid.Column="2"
+                        Text="🔄 Refresh"
+                        Clicked="Refresh_Clicked"
+                        BackgroundColor="#22C55E"
+                        TextColor="White"/>
+
+                <Button Grid.Column="3"
+                        Text="🗺 Advice"
+                        Clicked="Advice_Clicked"
+                        BackgroundColor="#F59E0B"
+                        TextColor="White"/>
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrafficMonitor.AnalyticsView">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <Label Text="📊 Data Analysis"
+               FontSize="28"
+               FontAttributes="Bold"
+               TextColor="#111827"/>
+
+        <!-- 图表卡片 -->
+        <Frame BackgroundColor="White"
+               CornerRadius="20"
+               Padding="20"
+               HasShadow="True">
+
+            <VerticalStackLayout>
+                <Label Text="📈 Real-time Traffic Trend"
+                       FontSize="18"
+                       FontAttributes="Bold"/>
+
+                <!-- ✅ 实时图表 -->
+                <GraphicsView HeightRequest="220"
+                              x:Name="ChartView"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- 信息卡片 -->
+        <Frame BackgroundColor="White" CornerRadius="20" Padding="20">
+            <Label Text="Peak hours: 6-8 PM"/>
+        </Frame>
+
+        <Frame BackgroundColor="White" CornerRadius="20" Padding="20">
+            <Label Text="Average speed: 38 km/h"/>
+        </Frame>
+
+    </VerticalStackLayout>
+
+</ContentView>

@@ -1,37 +1,50 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TrafficMonitor.MainPage"
              BackgroundColor="#F3F6FB">
 
     <Grid RowDefinitions="*,Auto">
 
-        <!-- 页面内容 -->
-        <ContentView x:Name="MainContent" Grid.Row="0"/>
+        <!-- 🔹 主内容区域 -->
+        <ContentView x:Name="MainContent"
+                     Grid.Row="0"
+                     Padding="10"/>
 
-        <!-- 底部导航栏 -->
-        <Grid Grid.Row="1"
-              BackgroundColor="White"
-              Padding="10"
-              ColumnDefinitions="*,*,*"
-              HeightRequest="70">
+        <!-- 🔹 底部导航栏 -->
+        <Frame Grid.Row="1"
+               BackgroundColor="White"
+               Padding="10"
+               Margin="15"
+               CornerRadius="25"
+               HasShadow="True">
 
-            <Button x:Name="HomeBtn"
-                    Text="🏠\n首页"
-                    Clicked="Home_Clicked"
-                    BackgroundColor="Transparent"/>
+            <Grid ColumnDefinitions="*,*,*">
 
-            <Button x:Name="AnalyticsBtn"
-                    Grid.Column="1"
-                    Text="📊\n分析"
-                    Clicked="Analytics_Clicked"
-                    BackgroundColor="Transparent"/>
+                <!-- Home -->
+                <Button Text="🏠&#10;Home"
+                        Clicked="Home_Clicked"
+                        BackgroundColor="Transparent"
+                        FontSize="14"/>
 
-            <Button x:Name="UserBtn"
-                    Grid.Column="2"
-                    Text="👤\n我的"
-                    Clicked="User_Clicked"
-                    BackgroundColor="Transparent"/>
+                <!-- Analytics -->
+                <Button Text="📊&#10;Analytics"
+                        Grid.Column="1"
+                        Clicked="Analytics_Clicked"
+                        BackgroundColor="Transparent"
+                        FontSize="14"/>
 
-        </Grid>
+                <!-- User -->
+                <Button Text="👤&#10;User"
+                        Grid.Column="2"
+                        Clicked="User_Clicked"
+                        BackgroundColor="Transparent"
+                        FontSize="14"/>
+
+            </Grid>
+        </Frame>
+
     </Grid>
+
 </ContentPage>

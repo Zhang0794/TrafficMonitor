@@ -1,28 +1,32 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="TrafficMonitor.LoginPage">
+    x:Class="TrafficMonitor.Pages.RegisterPage">
 
     <VerticalStackLayout Padding="30" Spacing="20">
 
         <Label 
-            Text="Traffic Monitor Login"
+            Text="Register"
             FontSize="30"
             HorizontalOptions="Center"/>
 
         <Entry
-            x:Name="usernameEntry"
+            x:Name="newUsername"
             Placeholder="Enter Username"/>
 
         <Entry
-            x:Name="passwordEntry"
+            x:Name="newPassword"
             Placeholder="Enter Password"
             IsPassword="True"/>
 
+        <Entry
+            x:Name="confirmPassword"
+            Placeholder="Confirm Password"
+            IsPassword="True"/>
+
         <Button
-            Text="Login"
-            Clicked="Login_Clicked"/>
+            Text="Register"
+            Clicked="OnRegisterClicked"/>
 
     </VerticalStackLayout>
 

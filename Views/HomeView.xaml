@@ -1,0 +1,147 @@
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrafficMonitor.HomeView"
+             BackgroundColor="{AppThemeBinding Light=#F3F6FB, Dark=#111827}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <Frame CornerRadius="24" Padding="20" BackgroundColor="#2563EB">
+                <VerticalStackLayout>
+                    <Label Text="🚦 Traffic Monitor"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Singapore Checkpoint Dashboard"
+                           TextColor="#DBEAFE"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- LIVE Camera -->
+            <Frame CornerRadius="20">
+                <Grid>
+                    <Image Source="traffic.jpg"
+                           HeightRequest="220"
+                           Aspect="AspectFill"/>
+
+                    <Frame BackgroundColor="#80000000"
+                           CornerRadius="10"
+                           Padding="6"
+                           Margin="10"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start">
+                        <Label Text="🔴 LIVE"
+                               TextColor="White"/>
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            <!-- Stats -->
+            <Grid ColumnDefinitions="*,*" RowSpacing="10">
+
+                <Frame>
+                    <VerticalStackLayout>
+                        <Label Text="Cars"/>
+                        <Label x:Name="CarCountLabel" FontSize="26" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Column="1">
+                    <VerticalStackLayout>
+                        <Label Text="Level"/>
+                        <Label x:Name="TrafficLevelLabel" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1">
+                    <VerticalStackLayout>
+                        <Label Text="Wait"/>
+                        <Label x:Name="WaitTimeLabel"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1">
+                    <VerticalStackLayout>
+                        <Label Text="Trend"/>
+                        <Label x:Name="TrafficTrendLabel"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </Grid>
+
+            <!-- Alert -->
+            <Frame BackgroundColor="#FEF2F2" CornerRadius="12">
+                <Label x:Name="AlertLabel"/>
+            </Frame>
+
+            <!-- Last Update -->
+            <Label x:Name="LastUpdatedLabel"
+                   HorizontalOptions="Center"
+                   TextColor="Gray"/>
+
+            <!-- Checkpoints -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Text="📍 Woodlands"
+                        Clicked="Woodlands_Clicked"
+                        BackgroundColor="#2563EB"
+                        TextColor="White"/>
+
+                <Button Grid.Column="1"
+                        Text="📍 Tuas"
+                        Clicked="Tuas_Clicked"
+                        BackgroundColor="#1D4ED8"
+                        TextColor="White"/>
+            </Grid>
+
+            <!-- 🚀 新功能按钮（重点加分） -->
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+
+                <Button Text="⭐ Favorite"
+                        Clicked="Favorite_Clicked"
+                        BackgroundColor="#6366F1"
+                        TextColor="White"/>
+
+                <Button Grid.Column="1"
+                        Text="📤 Share"
+                        Clicked="Share_Clicked"
+                        BackgroundColor="#0EA5E9"
+                        TextColor="White"/>
+
+                <Button Grid.Column="2"
+                        Text="▶ Playback"
+                        Clicked="Playback_Clicked"
+                        BackgroundColor="#F59E0B"
+                        TextColor="White"/>
+
+            </Grid>
+
+            <!-- Refresh 单独突出 -->
+            <Button Text="🔄 Refresh Data"
+                    Clicked="Refresh_Clicked"
+                    BackgroundColor="#22C55E"
+                    TextColor="White"
+                    HeightRequest="50"
+                    CornerRadius="12"/>
+
+            <!-- Traffic Flow -->
+            <Frame CornerRadius="20" Padding="15" BackgroundColor="White">
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="📊 Traffic Flow"
+                           FontAttributes="Bold"/>
+
+                    <Label Text="Woodlands"/>
+                    <ProgressBar x:Name="WoodlandsTrafficBar"/>
+
+                    <Label Text="Tuas"/>
+                    <ProgressBar x:Name="TuasTrafficBar"/>
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>
